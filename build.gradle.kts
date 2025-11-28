@@ -6,7 +6,7 @@ plugins {
 group   = "com.ronreynolds"
 version = "0.0.1-SNAPSHOT"
 
-val mainClass = "com.ronreynolds.temp.Main"
+val mainClass = "com.ronreynolds.graphics.Main"
 
 // library versions
 val assertJVersion      = "3.27.3"         // 2025-01-18
