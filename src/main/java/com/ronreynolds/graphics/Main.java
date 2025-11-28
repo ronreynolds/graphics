@@ -1,5 +1,7 @@
 package com.ronreynolds.graphics;
 
+import lombok.extern.slf4j.Slf4j;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
@@ -11,8 +13,10 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.geom.Ellipse2D;
 
+@Slf4j
 public class Main {
     private static final Runnable createMainFrame = () -> {
+        log.info("creating main application frame");
         // top-level application frame
         var frame = new JFrame("Graphics Example");
         frame.setSize(800, 600);
@@ -28,10 +32,12 @@ public class Main {
             }
         });
         frame.setVisible(true);
+        log.info("main application frame visible");
     };
 
     /** this creates a static scene with some basic shapes and text */
     private static void updateGraphics(Graphics g) {
+        log.info("updating graphics");
         // Cast Graphics object to Graphics2D for enhanced 2D features
         Graphics2D g2d = (Graphics2D) g;
 
@@ -55,10 +61,12 @@ public class Main {
         g2d.setColor(Color.BLACK);
         g2d.setFont(new Font("Serif", Font.BOLD, 20));
         g2d.drawString("Hello Java 2D!", 70, 250); // text, x, y
+        log.info("graphics updated");
     }
 
     public static void main(String[] args) {
         // enqueue the GUI creation on the NON-DAEMON Event Dispatch Thread (which is why the JVM doesn't exit after main())
         SwingUtilities.invokeLater(createMainFrame);
+        log.info("main method completed");
     }
 }
